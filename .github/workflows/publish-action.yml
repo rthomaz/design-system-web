@@ -21,8 +21,22 @@ jobs:
           cache: 'npm'
           cache-dependency-path: package-lock.json
       
-      - run: npm version minor -m "Upgrade to..."
-      - run: git push && git push --tags
+       - name: Git config
+         run: |
+          git config --global user.email "${{ secrets.GH_ORG_EMAIL }}"
+          git config --global user.name "${{ secrets.GH_ORG_NAME }}"
+       - name: Apply version bump (major)
+         if: contains(github.event.pull_request.labels.*.name, 'major')
+         run: npm version major
+       - name: Apply version bump (minor)
+         if: contains(github.event.pull_request.labels.*.name, 'minor')
+         run: npm version minor
+       - name: Apply version bump (patch)
+         if: contains(github.event.pull_request.labels.*.name, 'patch')
+         run: npm version patch
+
+      # - run: npm version minor -m "Upgrade to..."
+      # - run: git push && git push --tags
 
       - name: Install dependencies
         run: npm install
