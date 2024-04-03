@@ -17,6 +17,16 @@ jobs:
         run: npm install
       - name: Building desing-system-web-lib
         run: npx nx run design-system-web-lib:build --configuration=production
+      # - name: Linting desing-system-web-lib
+      #   run: npx nx run design-system-web-lib:lint
+      - name: Unit testing desingn-system-web-lib
+        run: npx nx run design-system-web-lib:test
+
+      - name: Building Storybook desing-system-web-lib
+        run: npx nx run design-system-web-lib:build-storybook
+      # - name: Testing Storybook desingn-system-web-lib
+      #   run: npx nx run design-system-web-lib:test-storybook 
+      
       # - run: npm version minor -m "Upgrade to %s [skip ci]"
       # - run: git push && git push --tags
       # - run: npm ci
