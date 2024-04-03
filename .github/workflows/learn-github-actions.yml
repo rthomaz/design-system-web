@@ -1,8 +1,8 @@
-name: learn-github-actions
+name: publish
 run-name: ${{ github.actor }} is learning GitHub Actions
 on: [push]
 jobs:
-  check-bats-version:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: '21.5.0'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm install
+      # - run: npm install
       # - run: npm version minor -m "Upgrade to %s [skip ci]"
       # - run: git push && git push --tags
       - run: npm ci
