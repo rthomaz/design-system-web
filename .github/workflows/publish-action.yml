@@ -13,10 +13,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm version minor -m "Upgrade to..."
       - run: git push && git push --tags
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
       # - run: npm version minor -m "Upgrade to %s [skip ci]"
       # - run: git push && git push --tags
-      - run: npm ci
+      # - run: npm ci
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
