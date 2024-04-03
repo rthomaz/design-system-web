@@ -10,33 +10,30 @@ jobs:
     name: All Steps (Build, Test & Deploy)
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      # Cache npm
-      # - name: Cache node modules
-      #   uses: actions/cache@v1
-      #   with:
-      #     path: ~/.npm
-      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-node-
+      - name: Checkout the source code
+        uses: actions/checkout@v4
       # Setup .npmrc file to publish to npm
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '21.5.0'
           registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
           cache-dependency-path: package-lock.json
+      
       # - run: npm version minor -m "Upgrade to..."
       # - run: git push && git push --tags
+
       - name: Install dependencies
         run: npm install
       - name: Building desing-system-web-lib
         run: npx nx run design-system-web-lib:build --configuration=production
-      # - name: Linting desing-system-web-lib
-      #   run: npx nx run design-system-web-lib:lint
+      - name: Linting desing-system-web-lib
+        run: npx nx run design-system-web-lib:lint
       - name: Unit testing desingn-system-web-lib
         run: npx nx run design-system-web-lib:test
 
+      # Storybook
       - name: Building Storybook desing-system-web-lib
         run: npx nx run design-system-web-lib:build-storybook
       # - name: Testing Storybook desingn-system-web-lib
@@ -45,6 +42,7 @@ jobs:
       # - run: npm version minor -m "Upgrade to %s [skip ci]"
       # - run: git push && git push --tags
       # - run: npm ci
+      
       - name: Publishing npmjs.com package
         run: npm publish --access public
         env:
