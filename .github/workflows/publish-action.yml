@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: '21.5.0'
           registry-url: 'https://registry.npmjs.org'
-      # - run: npm version minor -m "Upgrade to..."
+      - run: npm version minor -m "Upgrade to..."
       # - run: git push && git push --tags
       - name: Install dependencies
         run: npm install
@@ -26,7 +26,7 @@ jobs:
         run: npx nx run design-system-web-lib:build-storybook
       # - name: Testing Storybook desingn-system-web-lib
       #   run: npx nx run design-system-web-lib:test-storybook 
-      
+
       # - run: npm version minor -m "Upgrade to %s [skip ci]"
       # - run: git push && git push --tags
       # - run: npm ci
