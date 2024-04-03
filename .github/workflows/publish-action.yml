@@ -21,8 +21,8 @@ jobs:
           cache: 'npm'
           cache-dependency-path: package-lock.json
       
-      # - run: npm version minor -m "Upgrade to..."
-      # - run: git push && git push --tags
+      - run: npm version minor -m "Upgrade to..."
+      - run: git push && git push --tags
 
       - name: Install dependencies
         run: npm install
@@ -42,7 +42,7 @@ jobs:
       # - run: npm version minor -m "Upgrade to %s [skip ci]"
       # - run: git push && git push --tags
       # - run: npm ci
-      
+
       - name: Publishing npmjs.com package
         run: npm publish --access public
         env:
