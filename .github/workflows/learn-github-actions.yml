@@ -1,5 +1,5 @@
 name: publish
-run-name: ${{ github.actor }} is learning GitHub Actions
+run-name: ${{ github.actor }} is publishing design-system-web
 on: [push]
 jobs:
   build:
