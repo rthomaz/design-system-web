@@ -1,6 +1,10 @@
 name: publish
 run-name: ${{ github.actor }} is publishing design-system-web
-on: [push]
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 jobs:
   build:
     name: All Steps (Build, Test & Deploy)
@@ -8,19 +12,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       # Cache npm
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+      # - name: Cache node modules
+      #   uses: actions/cache@v1
+      #   with:
+      #     path: ~/.npm
+      #     key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-node-
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
           node-version: '21.5.0'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm version minor -m "Upgrade to..."
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+      # - run: npm version minor -m "Upgrade to..."
       # - run: git push && git push --tags
       - name: Install dependencies
         run: npm install
