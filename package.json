@@ -1,8 +1,13 @@
 {
   "name": "@rthomaz/design-system-web",
   "version": "0.0.0",
-  "license": "MIT",
   "scripts": {},
+  "license": "MIT",
+  "author": "Rodrigo Thomaz <rodrigothomaz@msn.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rthomaz/design-system-web.git"
+  },
   "private": false,
   "dependencies": {
     "@angular/animations": "~17.3.0",
