@@ -3,9 +3,18 @@ run-name: ${{ github.actor }} is publishing design-system-web
 on: [push]
 jobs:
   build:
+    name: All Steps (Build, Test & Deploy)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # Cache npm
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
