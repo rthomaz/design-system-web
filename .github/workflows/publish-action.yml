@@ -34,6 +34,12 @@ jobs:
       - name: Apply version bump (patch)
         if: contains(github.event.pull_request.labels.*.name, 'patch')
         run: npm version patch
+      - name: Git push version bump
+        run: git push && git push --tags
+        # run: git push origin dev --follow-tags --force
+      - id: set-version
+        name: Output version change
+        run: npm pkg get version
 
       # - run: npm version minor -m "Upgrade to..."
       # - run: git push && git push --tags
