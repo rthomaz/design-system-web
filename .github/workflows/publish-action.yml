@@ -49,10 +49,17 @@ jobs:
       # - name: Testing Storybook desingn-system-web-lib
       #   run: npx nx run design-system-web-lib:test-storybook 
 
-      - name: Publishing npmjs.com package
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: nx publishing
+        run: npx nx run design-system-web-lib:nx-release-publish
+
+      # # Npm Pack      
+      # - name: Packing 
+      #   run: npm pack -w:dist/libs/design-system-web-lib/
+
+      # - name: Publishing npmjs.com package
+      #   run: npm publish --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       # - name: Create Release
       #   id: create_release
