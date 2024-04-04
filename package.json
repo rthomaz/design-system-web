@@ -7,7 +7,8 @@
     "prettier": "prettier --plugin-search-dir=. .",
     "prettier:fix": "prettier --write --plugin-search-dir=. .",
     "stylelint": "stylelint packages/**/*.css",
-    "stylelint:fix": "yarn stylelint --fix"
+    "stylelint:fix": "yarn stylelint --fix",
+    "deploy-storybook": "storybook-to-ghpages -e dist/storybook --monorepo-index-generator scripts/index-generator.js"
   },
   "description": "RThomaz Design System - Libraries for web applications",
   "keywords": [
@@ -67,6 +68,7 @@
     "@storybook/angular": "7.6.17",
     "@storybook/core-server": "7.6.17",
     "@storybook/jest": "^0.2.3",
+    "@storybook/storybook-deployer": "2.8.16",
     "@storybook/test-runner": "^0.13.0",
     "@storybook/testing-library": "^0.2.2",
     "@swc-node/register": "~1.8.0",
