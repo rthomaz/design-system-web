@@ -1,6 +1,23 @@
 {
   "name": "@rthomaz/design-system-icons",
   "version": "0.0.1",
+  "description": "RThomaz Design System - Icons library for web applications",
+  "keywords": [
+    "design-system",
+    "ui-kit",
+    "libraries",
+    "rthomaz"
+  ],
+  "homepage": "https://github.com/rthomaz/design-system-web",
+  "license": "MIT",
+  "author": "Rodrigo Thomaz <rodrigothomaz@msn.com>",
+  "bugs": {
+    "url": "https://github.com/rthomaz/design-system-web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rthomaz/design-system-web.git"
+  },
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0",
