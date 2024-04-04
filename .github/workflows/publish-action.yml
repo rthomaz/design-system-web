@@ -46,6 +46,7 @@ jobs:
           teste=`echo $(npm pkg get version) | sed -e 's/\"//g'`
           echo $teste
           echo $teste >> $VERSION
+          echo $VERSION
       - name: echo version
         run: echo $VERSION
       - name: Apply version css
