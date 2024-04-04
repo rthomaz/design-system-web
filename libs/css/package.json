@@ -1,6 +1,6 @@
 {
   "name": "@rthomaz/design-system-css",
-  "version": "0.0.2",
+  "version": "0.13.1",
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0",
