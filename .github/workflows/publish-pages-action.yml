@@ -53,7 +53,7 @@ jobs:
 
       # Test Storybooks
       - name: Testing Storybooks
-        run: yarn test:storybook
+        run: yarn nx run angular:test-storybook --url https://rthomaz.github.io/design-system-web/angular
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
