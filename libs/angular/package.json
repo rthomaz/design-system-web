@@ -1,5 +1,5 @@
 {
-  "name": "@rthomaz/design-system/angular",
+  "name": "@rthomaz/design-system-angular",
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/common": "^17.3.0",
