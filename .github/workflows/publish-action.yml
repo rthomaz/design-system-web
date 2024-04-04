@@ -25,17 +25,11 @@ jobs:
         run: |
           git config --global user.email "${{ secrets.GH_ORG_EMAIL }}"
           git config --global user.name "${{ secrets.GH_ORG_NAME }}"
-          
-      - name: Apply version
-        run: npm version minor -m "Upgrade to..."
-      - name: Git push version bump
-        run: git push && git push --tags
-      - id: set-version
-        name: Output version change
-        run: npm pkg get version
 
       - name: Install dependencies
         run: npm install
+
+      # desing-system-web-lib
       - name: Building desing-system-web-lib
         run: npx nx run design-system-web-lib:build --configuration=production
       - name: Linting desing-system-web-lib
@@ -47,19 +41,28 @@ jobs:
       - name: Building Storybook desing-system-web-lib
         run: npx nx run design-system-web-lib:build-storybook
       # - name: Testing Storybook desingn-system-web-lib
-      #   run: npx nx run design-system-web-lib:test-storybook 
+      #   run: npx nx run design-system-web-lib:test-storybook       
 
-      - name: nx publishing
-        run: npx nx run design-system-web-lib:nx-release-publish
+      # versioning
+      - name: Apply version desing-system-web-lib
+        run: cd libs/design-system-web-lib && npm version minor -m "Upgrade to..." && cd ../..
+      - name: Git push version bump
+        run: git push && git push --tags
+      - id: set-version
+        name: Output version change
+        run: npm pkg get version
 
-      # # Npm Pack      
-      # - name: Packing 
-      #   run: npm pack -w:dist/libs/design-system-web-lib/
+      # Npm Pack      
+      - name: Packing 
+        run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib
 
       # - name: Publishing npmjs.com package
       #   run: npm publish --access public
       #   env:
       #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: nx publishing
+        run: npx nx run design-system-web-lib:nx-release-publish --packageRoot=dist/libs/design-system-web-lib
 
       # - name: Create Release
       #   id: create_release
