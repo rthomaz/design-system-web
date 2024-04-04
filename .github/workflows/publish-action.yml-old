@@ -32,16 +32,20 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
       # versioning
+      - name: Apply version root
+        run: yarn version --patch
+      - name: Set env
+        run: VERSION=`echo $(npm pkg get version) | sed -e 's/\"//g'`
       - name: Apply version css
-        run: yarn version --patch --cwd libs/css
-      - name: Apply version icons
-        run: yarn version --patch --cwd libs/icons
-      - name: Apply version assets
-        run: yarn version --patch --cwd libs/assets
-      - name: Apply version angular
-        run: yarn version --patch --cwd libs/angular
-      - name: Apply version desing-system-web-lib
-        run: yarn version --patch --cwd libs/design-system-web-lib
+        run: yarn version --new-version $VERSION --cwd libs/css
+      # - name: Apply version icons
+      #   run: yarn version --patch --cwd libs/icons
+      # - name: Apply version assets
+      #   run: yarn version --patch --cwd libs/assets
+      # - name: Apply version angular
+      #   run: yarn version --patch --cwd libs/angular
+      # - name: Apply version desing-system-web-lib
+      #   run: yarn version --patch --cwd libs/design-system-web-lib
 
       - name: Git push version
         run: git push && git push --tags
