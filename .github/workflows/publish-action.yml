@@ -37,7 +37,7 @@ jobs:
         run: npm pkg get version
 
       - name: Install dependencies
-        run: npm install
+        run: yarn install
 
       # desing-system-web-lib
       - name: Building desing-system-web-lib
