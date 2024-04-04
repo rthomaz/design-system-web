@@ -7,8 +7,7 @@
     "prettier": "prettier --plugin-search-dir=. .",
     "prettier:fix": "prettier --write --plugin-search-dir=. .",
     "stylelint": "stylelint packages/**/*.css",
-    "stylelint:fix": "yarn stylelint --fix",
-    "deploy-storybook": "storybook-to-ghpages -e dist/storybook --monorepo-index-generator scripts/index-generator.js"
+    "stylelint:fix": "yarn stylelint --fix"
   },
   "description": "RThomaz Design System - Libraries for web applications",
   "keywords": [
