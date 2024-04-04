@@ -17,7 +17,8 @@
     "paths": {
       "@rthomaz/design-system-web-lib": [
         "libs/design-system-web-lib/src/index.ts"
-      ]
+      ],
+      "@rthomaz/design-system/assets": ["libs/assets/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
