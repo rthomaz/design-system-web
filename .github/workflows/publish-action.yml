@@ -43,20 +43,21 @@ jobs:
       - name: Install dependencies
         run: yarn install --silent --frozen-lockfile
 
-      # desing-system-web-lib
-      - name: Building desing-system-web-lib
+      - name: Building
         run: yarn build
-        # run: npx nx run design-system-web-lib:build --configuration=production
 
-      - name: Linting desing-system-web-lib
-        run: npx nx run design-system-web-lib:lint
+      - name: Linting
+        run: yarn lint
 
-      - name: Unit testing desingn-system-web-lib
-        run: npx nx run design-system-web-lib:test
+      - name: Prettier
+        run: yarn prettier
+
+      - name: Unit testing
+        run: yarn test
 
       # Storybook
-      - name: Building Storybook desing-system-web-lib
-        run: npx nx run design-system-web-lib:build-storybook
+      - name: Building Storybook
+        run: yarn build-storybook
       # - name: Testing Storybook desingn-system-web-lib
       #   run: npx nx run design-system-web-lib:test-storybook
       # yarn playwright install

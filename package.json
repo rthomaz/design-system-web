@@ -5,9 +5,9 @@
     "build": "nx run-many --target=build --all --parallel",
     "build-storybook": "nx run-many --target=build-storybook --all --parallel",
     "lint": "nx run-many --target=lint --all=true --parallel",
-    "lint:fix": "nx run-many --target=lint:fix --all=true --parallel",
     "prettier": "prettier --plugin-search-dir=. .",
-    "prettier:fix": "prettier --write --plugin-search-dir=. ."
+    "prettier:fix": "prettier --write --plugin-search-dir=. .",
+    "test": "nx run-many --target=test --all --parallel"
   },
   "description": "RThomaz Design System - Libraries for web applications",
   "keywords": [
@@ -26,7 +26,7 @@
     "type": "git",
     "url": "git+https://github.com/rthomaz/design-system-web.git"
   },
-  "private": false,
+  "private": false,   
   "dependencies": {
     "@angular/animations": "17.3.3",
     "@angular/common": "17.3.3",
