@@ -3678,7 +3678,7 @@
     remark-slug "^6.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-essentials@^7.5.3":
+"@storybook/addon-essentials@7.6.17":
   version "7.6.17"
   resolved "https://registry.yarnpkg.com/@storybook/addon-essentials/-/addon-essentials-7.6.17.tgz#d49d9a77edc999518c6871b66032a647787c39f4"
   integrity sha512-qlSpamxuYfT2taF953nC9QijGF2pSbg1ewMNpdwLTj16PTZvR/d8NCDMTJujI1bDwM2m18u8Yc43ibh5LEmxCw==
@@ -3744,7 +3744,7 @@
   dependencies:
     memoizerific "^1.11.3"
 
-"@storybook/angular@^7.5.3":
+"@storybook/angular@7.6.17":
   version "7.6.17"
   resolved "https://registry.yarnpkg.com/@storybook/angular/-/angular-7.6.17.tgz#4f72e57d0f02355d2d07419f4af2b122a4abe683"
   integrity sha512-dKhY7YQrJTitdKfusxBqJHMPezq++vTwdWtKmFHveU8ALS9PJbmMUriuoBQRll9VIwS3E3Y5CyLc7524tYT+3A==
@@ -4008,7 +4008,7 @@
   dependencies:
     ts-dedent "^2.0.0"
 
-"@storybook/core-server@7.6.17", "@storybook/core-server@^7.5.3":
+"@storybook/core-server@7.6.17":
   version "7.6.17"
   resolved "https://registry.yarnpkg.com/@storybook/core-server/-/core-server-7.6.17.tgz#bf5b7a9db7abe157a14dba6279936e43efa79250"
   integrity sha512-KWGhTTaL1Q14FolcoKKZgytlPJUbH6sbJ1Ptj/84EYWFewcnEgVs0Zlnh1VStRZg+Rd1WC1V4yVd/bbDzxrvQA==
