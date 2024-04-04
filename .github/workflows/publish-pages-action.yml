@@ -51,17 +51,17 @@ jobs:
       - name: Building Storybooks
         run: yarn build-storybook
 
-      - name: teste
-        run: yarn deploy-storybook
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
-      # - name: Setup Pages
-      #   uses: actions/configure-pages@v5
+      - name: Copy index.html
+        run: cp scripts/index.html dist/storybook
 
-      # - name: Upload artifact
-      #   uses: actions/upload-pages-artifact@v3
-      #   with:
-      #     path: 'dist/storybook'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist/storybook'
 
-      # - name: Deploy to GitHub Pages
-      #   id: deployment
-      #   uses: actions/deploy-pages@v4
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
