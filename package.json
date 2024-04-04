@@ -4,10 +4,10 @@
   "scripts": {
     "build": "nx run-many --target=build --all --parallel",
     "build-storybook": "nx run-many --target=build-storybook --all --parallel",
+    "lint": "nx run-many --target=lint --all=true --parallel",
+    "lint:fix": "nx run-many --target=lint:fix --all=true --parallel",
     "prettier": "prettier --plugin-search-dir=. .",
-    "prettier:fix": "prettier --write --plugin-search-dir=. .",
-    "stylelint": "stylelint packages/**/*.css",
-    "stylelint:fix": "yarn stylelint --fix"
+    "prettier:fix": "prettier --write --plugin-search-dir=. ."
   },
   "description": "RThomaz Design System - Libraries for web applications",
   "keywords": [
