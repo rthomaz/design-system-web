@@ -65,10 +65,11 @@ jobs:
         run: npx nx run design-system-web-lib:build-storybook
       # - name: Testing Storybook desingn-system-web-lib
       #   run: npx nx run design-system-web-lib:test-storybook       
-     
+      # yarn playwright install 
+
       # Npm Pack      
       # - name: Packing 
-      #   run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib
+      #   run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib      
 
       - name: Publishing npmjs.com package
         # run: npm publish dist/libs/design-system-web-lib --access public
