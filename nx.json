@@ -12,9 +12,6 @@
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/src/test-setup.[jt]s",
       "!{projectRoot}/test-setup.[jt]s",
-      "!{projectRoot}/cypress/**/*",
-      "!{projectRoot}/**/*.cy.[jt]s?(x)",
-      "!{projectRoot}/cypress.config.[jt]s",
       "!{projectRoot}/**/*.stories.@(js|jsx|ts|tsx|mdx)",
       "!{projectRoot}/.storybook/**/*",
       "!{projectRoot}/tsconfig.storybook.json"
@@ -66,15 +63,6 @@
   },
   "plugins": [
     {
-      "plugin": "@nx/cypress/plugin",
-      "options": {
-        "targetName": "e2e",
-        "componentTestingTargetName": "component-test",
-        "ciTargetName": "e2e-ci",
-        "openTargetName": "open-cypress"
-      }
-    },
-    {
       "plugin": "@nx/eslint/plugin",
       "options": {
         "targetName": "lint"
@@ -82,12 +70,6 @@
     }
   ],
   "generators": {
-    "@nx/angular:application": {
-      "e2eTestRunner": "cypress",
-      "linter": "eslint",
-      "style": "scss",
-      "unitTestRunner": "jest"
-    },
     "@nx/angular:library": {
       "linter": "eslint",
       "unitTestRunner": "jest"
