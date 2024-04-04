@@ -58,7 +58,7 @@ jobs:
       #   run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib
 
       - name: Publishing npmjs.com package
-        run: npm publish --access public -w dist/libs/design-system-web-lib
+        run: npm publish dist/libs/design-system-web-lib --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
