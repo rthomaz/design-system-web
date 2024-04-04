@@ -15,10 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@rthomaz/design-system/angular": ["libs/angular/src/index.ts"],
-      "@rthomaz/design-system/assets": ["libs/assets/src/index.ts"],
-      "@rthomaz/design-system/css": ["libs/css/src/index.ts"],
-      "@rthomaz/design-system/icons": ["libs/icons/src/index.ts"]
+      "@rthomaz/design-system-web/angular": ["libs/angular/src/index.ts"],
+      "@rthomaz/design-system-web/assets": ["libs/assets/src/index.ts"],
+      "@rthomaz/design-system-web/css": ["libs/css/src/index.ts"],
+      "@rthomaz/design-system-web/icons": ["libs/icons/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
