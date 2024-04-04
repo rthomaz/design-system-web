@@ -26,6 +26,16 @@ jobs:
           git config --global user.email "${{ secrets.GH_ORG_EMAIL }}"
           git config --global user.name "${{ secrets.GH_ORG_NAME }}"
 
+      # versioning
+      - name: Apply version desing-system-web-lib
+        run: npm version minor -m "Upgrade to..."
+        # run: cd libs/design-system-web-lib && npm version minor -m "Upgrade to..." && cd ../..
+      - name: Git push version bump
+        run: git push && git push --tags
+      - id: set-version
+        name: Output version change
+        run: npm pkg get version
+
       - name: Install dependencies
         run: npm install
 
@@ -42,17 +52,7 @@ jobs:
         run: npx nx run design-system-web-lib:build-storybook
       # - name: Testing Storybook desingn-system-web-lib
       #   run: npx nx run design-system-web-lib:test-storybook       
-
-      # versioning
-      - name: Apply version desing-system-web-lib
-        run: npm version minor -m "Upgrade to..."
-        # run: cd libs/design-system-web-lib && npm version minor -m "Upgrade to..." && cd ../..
-      - name: Git push version bump
-        run: git push && git push --tags
-      - id: set-version
-        name: Output version change
-        run: npm pkg get version
-
+     
       # Npm Pack      
       # - name: Packing 
       #   run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib
