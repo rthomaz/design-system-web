@@ -55,15 +55,6 @@ jobs:
       - name: Apply lib design-system-web-lib version
         run: yarn version --new-version `echo $(npm pkg get version) | sed -e 's/\"//g'` --cwd libs/design-system-web-lib --no-git-tag-version
 
-      # - name: Set libs version
-      #   shell: bash
-      #   run: |
-      #     VERSION=`echo $(npm pkg get version) | sed -e 's/\"//g'`
-      #     yarn version --new-version $VERSION --cwd libs/css --no-git-tag-version
-      #     yarn version --new-version $VERSION --cwd libs/icons --no-git-tag-version
-      #     yarn version --new-version $VERSION --cwd libs/assets --no-git-tag-version
-      #     yarn version --new-version $VERSION --cwd libs/angular --no-git-tag-version
-
       - name: Git push version
         run: git push && git push --tags
 
@@ -93,45 +84,35 @@ jobs:
       # - name: Packing
       #   run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib
 
-      # - name: Publish libs version
-      #   shell: bash
-      #   run: |
-      #     VERSION=`echo $(npm pkg get version) | sed -e 's/\"//g'`
-      #     echo $VERSION
-      #     yarn publish dist/libs/design-system-web-lib --access public --new-version $VERSION --no-git-tag-version
-      #     yarn publish dist/libs/css --access public --new-version $VERSION --no-git-tag-version
-      #     yarn publish dist/libs/assets --access public --new-version $VERSION --no-git-tag-version
-      #     yarn publish dist/libs/icon --access public --new-version $VERSION --no-git-tag-version
-      #     yarn publish dist/libs/angular --access public --new-version $VERSION --no-git-tag-version
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
       - name: Publishing npmjs.com => design-system-web-lib
-        run: npm publish dist/libs/design-system-web-lib --access public
+        run: yarn publish dist/libs/design-system-web-lib --access public --no-git-tag-version
         # run: yarn publish dist/libs/design-system-web-lib --access public --patch
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publishing npmjs.com => css
-        run: npm publish dist/libs/css --access public
+        run: yarn publish dist/libs/css --access public --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publishing npmjs.com => icons
-        run: npm publish dist/libs/icons --access public
+        run: yarn publish dist/libs/icons --access public --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publishing npmjs.com => assets
-        run: npm publish dist/libs/assets --access public
+        run: yarn publish dist/libs/assets --access public --no-git-tag-version
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publishing npmjs.com => angular
-        run: npm publish dist/libs/angular --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # - name: Publishing npmjs.com => angular
+      #   run: yarn publish dist/libs/angular --access public --no-git-tag-version
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+
+
+      
       # - name: nx publishing
       #   run: npx nx run design-system-web-lib:nx-release-publish --packageRoot=dist/libs/design-system-web-lib
 
