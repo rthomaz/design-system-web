@@ -10,14 +10,14 @@
   },
   "private": false,
   "dependencies": {
-    "@angular/animations": "~17.3.0",
-    "@angular/common": "~17.3.0",
-    "@angular/compiler": "~17.3.0",
-    "@angular/core": "~17.3.0",
-    "@angular/forms": "~17.3.0",
-    "@angular/platform-browser": "~17.3.0",
-    "@angular/platform-browser-dynamic": "~17.3.0",
-    "@angular/router": "~17.3.0",
+    "@angular/animations": "17.3.3",
+    "@angular/common": "17.3.3",
+    "@angular/compiler": "17.3.3",
+    "@angular/core": "17.3.3",
+    "@angular/forms": "17.3.3",
+    "@angular/platform-browser": "17.3.3",
+    "@angular/platform-browser-dynamic": "17.3.3",
+    "@angular/router": "17.3.3",
     "@nx/angular": "18.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -33,8 +33,8 @@
     "@angular-eslint/eslint-plugin-template": "~17.3.0",
     "@angular-eslint/template-parser": "~17.3.0",
     "@angular/cli": "~17.3.0",
-    "@angular/compiler-cli": "~17.3.0",
-    "@angular/language-service": "~17.3.0",
+    "@angular/compiler-cli": "17.3.3",
+    "@angular/language-service": "17.3.3",
     "@nx/cypress": "18.2.2",
     "@nx/eslint": "18.2.2",
     "@nx/eslint-plugin": "18.2.2",
@@ -78,3 +78,4 @@
     "typescript": "~5.4.2"
   }
 }
+
