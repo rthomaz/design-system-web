@@ -42,9 +42,10 @@ jobs:
 
       # versioning
       - name: Apply version desing-system-web-lib
-        run: npm version minor -m "Upgrade to..."
+        run: yarn version --patch --cwd libs/design-system-web-lib
+        # run: npm version minor -m "Upgrade to..."
         # run: cd libs/design-system-web-lib && npm version minor -m "Upgrade to..." && cd ../..
-      - name: Git push version bump
+      - name: Git push version
         run: git push && git push --tags
       - id: set-version
         name: Output version change
