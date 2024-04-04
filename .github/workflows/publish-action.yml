@@ -36,6 +36,11 @@ jobs:
       # versioning
       - name: Apply version root
         run: yarn version --patch
+      
+      - name: Set libs version1      
+        run: yarn version --new-version `echo $(npm pkg get version) | sed -e 's/\"//g'` --cwd libs/css --no-git-tag-version
+          
+
       - name: Set libs version
         shell: bash
         run: |
