@@ -2,6 +2,8 @@
   "name": "@rthomaz/design-system-web",
   "version": "0.13.1",
   "scripts": {
+    "build": "nx run-many --target=build --all --parallel",
+    "build-storybook": "nx run-many --target=build-storybook --all --parallel",
     "prettier": "prettier --plugin-search-dir=. .",
     "prettier:fix": "prettier --write --plugin-search-dir=. .",
     "stylelint": "stylelint packages/**/*.css",
