@@ -51,19 +51,6 @@ jobs:
       - name: Building Storybooks
         run: yarn build-storybook
 
-      # Test Storybooks
-      - name: Testing Storybook css
-        run: yarn test-storybook -c libs/css/.storybook --no-index-json --url=https://rthomaz.github.io/design-system-web/css
-
-      - name: Testing Storybook assets
-        run: yarn test-storybook -c libs/assets/.storybook --no-index-json --url=https://rthomaz.github.io/design-system-web/assets
-
-      - name: Testing Storybook icons
-        run: yarn test-storybook -c libs/icons/.storybook --no-index-json --url=https://rthomaz.github.io/design-system-web/icons
-
-      - name: Testing Storybook angular
-        run: yarn test-storybook -c libs/angular/.storybook --no-index-json --url=https://rthomaz.github.io/design-system-web/angular
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -78,3 +65,19 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Test Storybooks
+      - name: Install playwright
+        run: yarn playwright install
+
+      - name: Testing Storybook css
+        run: yarn test-storybook -c libs/css/.storybook --no-index-json --url=https://rthomaz.github.io/design-system-web/css
+
+      - name: Testing Storybook assets
+        run: yarn test-storybook -c libs/assets/.storybook --no-index-json --url=https://rthomaz.github.io/design-system-web/assets
+
+      - name: Testing Storybook icons
+        run: yarn test-storybook -c libs/icons/.storybook --no-index-json --url=https://rthomaz.github.io/design-system-web/icons
+
+      - name: Testing Storybook angular
+        run: yarn test-storybook -c libs/angular/.storybook --no-index-json --url=https://rthomaz.github.io/design-system-web/angular
