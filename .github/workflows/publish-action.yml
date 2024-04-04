@@ -75,7 +75,7 @@ jobs:
 
       - name: Publishing npmjs.com package
         # run: npm publish dist/libs/design-system-web-lib --access public
-        run: yarn publish dist/libs/design-system-web-lib --access public --patch
+        run: yarn publish dist/libs/design-system-web-lib --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
