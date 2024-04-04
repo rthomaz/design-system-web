@@ -50,13 +50,15 @@ jobs:
         run: npm pkg get version
 
       - name: Install dependencies
-        run: yarn install --silent --production=true --frozen-lockfile
+        run: yarn install --silent --frozen-lockfile
 
       # desing-system-web-lib
       - name: Building desing-system-web-lib
         run: npx nx run design-system-web-lib:build --configuration=production
+
       - name: Linting desing-system-web-lib
         run: npx nx run design-system-web-lib:lint
+
       - name: Unit testing desingn-system-web-lib
         run: npx nx run design-system-web-lib:test
 
