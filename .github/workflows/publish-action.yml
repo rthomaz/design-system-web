@@ -45,7 +45,8 @@ jobs:
 
       # versioning
       - name: Apply version desing-system-web-lib
-        run: cd libs/design-system-web-lib && npm version minor -m "Upgrade to..." && cd ../..
+        run: npm version minor -m "Upgrade to..."
+        # run: cd libs/design-system-web-lib && npm version minor -m "Upgrade to..." && cd ../..
       - name: Git push version bump
         run: git push && git push --tags
       - id: set-version
