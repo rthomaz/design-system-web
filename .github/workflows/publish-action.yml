@@ -41,7 +41,7 @@ jobs:
 
       - name: Set env1
         run: echo "VERSION1=$(`echo $(npm pkg get version) | sed -e 's/\"//g'`)" >> $GITHUB_ENV
-      - name: Test
+      - name: Test 
         run: echo $VERSION1
 
       - name: Apply version root
