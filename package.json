@@ -1,12 +1,28 @@
 {
   "name": "@rthomaz/design-system-web",
   "version": "0.13.1",
-  "scripts": {},
+  "scripts": {
+    "prettier": "prettier --plugin-search-dir=. .",
+    "prettier:fix": "prettier --write --plugin-search-dir=. .",
+    "stylelint": "stylelint packages/**/*.css",
+    "stylelint:fix": "yarn stylelint --fix"
+  },
+  "description": "RThomaz Design System - Libraries for web applications",
+  "keywords": [
+    "design-system",
+    "ui-kit",
+    "libraries",
+    "rthomaz"
+  ],
+  "homepage": "https://github.com/rthomaz/design-system-web",
   "license": "MIT",
   "author": "Rodrigo Thomaz <rodrigothomaz@msn.com>",
+  "bugs": {
+    "url": "https://github.com/rthomaz/design-system-web/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rthomaz/design-system-web.git"
+    "url": "git+https://github.com/rthomaz/design-system-web.git"
   },
   "private": false,
   "dependencies": {

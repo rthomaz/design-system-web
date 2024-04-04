@@ -2,15 +2,14 @@ name: publish
 run-name: ${{ github.actor }} is publishing design-system-web
 on:
   push:
-    branches: [ "main" ]
+    branches: ['main']
   pull_request:
-    branches: [ "main" ]
+    branches: ['main']
 jobs:
   build:
     name: All Steps (Build, Test & Deploy)
     runs-on: ubuntu-latest
     steps:
-      
       - name: Checkout the source code
         uses: actions/checkout@v4
 
@@ -23,7 +22,6 @@ jobs:
       #   run: |
       #     git config --global user.email "${{ secrets.GH_ORG_EMAIL }}"
       #     git config --global user.name "${{ secrets.GH_ORG_NAME }}"
-
 
       # Setup .npmrc file to publish to npm
       - name: Setup Node.js
@@ -66,12 +64,12 @@ jobs:
       - name: Building Storybook desing-system-web-lib
         run: npx nx run design-system-web-lib:build-storybook
       # - name: Testing Storybook desingn-system-web-lib
-      #   run: npx nx run design-system-web-lib:test-storybook       
-      # yarn playwright install 
+      #   run: npx nx run design-system-web-lib:test-storybook
+      # yarn playwright install
 
-      # Npm Pack      
-      # - name: Packing 
-      #   run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib      
+      # Npm Pack
+      # - name: Packing
+      #   run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib
 
       - name: Publishing npmjs.com package
         run: npm publish dist/libs/design-system-web-lib --access public
@@ -79,7 +77,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      # - name: nx publishing 
+      # - name: nx publishing
       #   run: npx nx run design-system-web-lib:nx-release-publish --packageRoot=dist/libs/design-system-web-lib
 
       # - name: Create Release
