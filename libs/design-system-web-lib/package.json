@@ -1,6 +1,6 @@
 {
   "name": "@rthomaz/design-system-web-lib",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "peerDependencies": {
     "@angular/common": "^17.3.0",
     "@angular/core": "^17.3.0",
