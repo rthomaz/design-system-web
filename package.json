@@ -1,6 +1,6 @@
 {
   "name": "@rthomaz/design-system-web",
-  "version": "0.13.2",
+  "version": "0.13.3",
   "scripts": {
     "build": "nx run-many --target=build --all --parallel",
     "build-storybook": "nx run-many --target=build-storybook --all --parallel",
