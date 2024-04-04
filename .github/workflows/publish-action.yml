@@ -36,8 +36,10 @@ jobs:
         run: yarn version --patch
       - name: Set env
         run: VERSION=`echo $(npm pkg get version) | sed -e 's/\"//g'`
+      - name: echo version
+        run: echo $VERSION
       - name: Apply version css
-        run: yarn version --new-version $VERSION --cwd libs/css
+        run: yarn version --new-version $VERSION --cwd libs/css --no-git-tag-version
       # - name: Apply version icons
       #   run: yarn version --patch --cwd libs/icons
       # - name: Apply version assets
