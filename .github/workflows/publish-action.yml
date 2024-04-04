@@ -37,7 +37,8 @@ jobs:
       - name: Apply version root
         run: yarn version --patch
       - name: Set env
-        run: VERSION=`echo $(npm pkg get version) | sed -e 's/\"//g'`
+        # run: VERSION=`echo $(npm pkg get version) | sed -e 's/\"//g'`
+        run: echo $(npm pkg get version) | sed -e 's/\"//g' >> $VERSION
       - name: echo version
         run: echo $VERSION
       - name: Apply version css
