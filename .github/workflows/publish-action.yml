@@ -43,8 +43,6 @@ jobs:
       # versioning
       - name: Apply version desing-system-web-lib
         run: yarn version --patch --cwd libs/design-system-web-lib
-        # run: npm version minor -m "Upgrade to..."
-        # run: cd libs/design-system-web-lib && npm version minor -m "Upgrade to..." && cd ../..
       - name: Git push version
         run: git push && git push --tags
       - id: set-version
@@ -52,7 +50,7 @@ jobs:
         run: npm pkg get version
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --silent --production=true --frozen-lockfile
 
       # desing-system-web-lib
       - name: Building desing-system-web-lib
