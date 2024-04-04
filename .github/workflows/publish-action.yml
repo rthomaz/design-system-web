@@ -53,16 +53,16 @@ jobs:
         run: npm pkg get version
 
       # Npm Pack      
-      - name: Packing 
-        run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib
+      # - name: Packing 
+      #   run: npm pack -w:dist/libs/design-system-web-lib --pack-destination dist/libs/design-system-web-lib
 
-      # - name: Publishing npmjs.com package
-      #   run: npm publish --access public
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publishing npmjs.com package
+        run: npm publish --access public -w:dist/libs/design-system-web-lib
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: nx publishing
-        run: npx nx run design-system-web-lib:nx-release-publish --packageRoot=dist/libs/design-system-web-lib
+      # - name: nx publishing
+      #   run: npx nx run design-system-web-lib:nx-release-publish --packageRoot=dist/libs/design-system-web-lib
 
       # - name: Create Release
       #   id: create_release
