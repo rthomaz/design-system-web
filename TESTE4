@@ -1,3 +1,0 @@
-VERSION9=0.2.6
-VERSION9="0.2.6" | sed -e 's/"//g'
-VERSION9=

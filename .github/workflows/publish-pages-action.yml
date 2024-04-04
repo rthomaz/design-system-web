@@ -47,9 +47,13 @@ jobs:
       - name: Install dependencies
         run: yarn install --silent --frozen-lockfile
 
-      # Storybook
+      # Build Storybooks
       - name: Building Storybooks
         run: yarn build-storybook
+
+      # Test Storybooks
+      - name: Testing Storybooks
+        run: yarn test:storybook
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

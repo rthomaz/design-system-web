@@ -7,7 +7,8 @@
     "lint": "nx run-many --target=lint --all=true --parallel",
     "prettier": "prettier --plugin-search-dir=. .",
     "prettier:fix": "prettier --write --plugin-search-dir=. .",
-    "test": "nx run-many --target=test --all --parallel"
+    "test": "nx run-many --target=test --all --parallel",
+    "test:storybook": "nx run-many --target=test-storybook --all=true --parallel"
   },
   "description": "RThomaz Design System - Libraries for web applications",
   "keywords": [
