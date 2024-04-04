@@ -31,13 +31,38 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      # Setup .npmrc file to publish to npm
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '21.5.0'
+          registry-url: 'https://registry.npmjs.org'
+          # cache: 'npm'
+          # cache-dependency-path: package-lock.json
+
+      - name: Restore/create node_modules cache
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install dependencies
+        run: yarn install --silent --frozen-lockfile
+
+      # Storybook
+      - name: Building Storybook desing-system-web-lib
+        run: npx nx run design-system-web-lib:build-storybook
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: 'dist/storybook/design-system-web-lib'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
