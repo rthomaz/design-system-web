@@ -47,9 +47,6 @@ jobs:
 
       - name: Git push version
         run: git push && git push --tags
-      - id: set-version
-        name: Output version change
-        run: npm pkg get version
 
       - name: Install dependencies
         run: yarn install --silent --frozen-lockfile
